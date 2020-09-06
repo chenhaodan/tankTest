@@ -4,7 +4,7 @@ import com.factory.BaseExplore;
 
 import java.awt.*;
 
-public class Explore extends BaseExplore {
+public class Explore {
     private int x ;
     private int y ;
     TankFrame tf;
@@ -22,7 +22,6 @@ public class Explore extends BaseExplore {
 //        new Audio("audio/explode.wav").play();
     }
 
-    @Override
     public void paint(Graphics g){
         if(step < 16){
             g.drawImage(ResourceMgr.exploere[step],x,y,null);

@@ -16,13 +16,10 @@ public class FireDirStratege implements FireStratege {
             bX = x + Tank.HEIGHT/2 - Bullet.HEIGHT / 2;
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
-//        tf.bullets.add(new Bullet(bX,bY,Dir.LEFT,tf,group));
-//        tf.bullets.add(new Bullet(bX,bY,Dir.UP,tf,group));
-//        tf.bullets.add(new Bullet(bX,bY,Dir.RIGHT,tf,group));
-//        tf.bullets.add(new Bullet(bX,bY,Dir.DOWN,tf,group));
-        tf.bullets.add(tf.gf.createBullet(bX,bY,Dir.LEFT,tf,group));
-        tf.bullets.add(tf.gf.createBullet(bX,bY,Dir.UP,tf,group));
-        tf.bullets.add(tf.gf.createBullet(bX,bY,Dir.RIGHT,tf,group));
-        tf.bullets.add(tf.gf.createBullet(bX,bY,Dir.DOWN,tf,group));
+        tf.bullets.add(new Bullet(bX,bY,Dir.LEFT,tf,group));
+        tf.bullets.add(new Bullet(bX,bY,Dir.UP,tf,group));
+        tf.bullets.add(new Bullet(bX,bY,Dir.RIGHT,tf,group));
+        tf.bullets.add(new Bullet(bX,bY,Dir.DOWN,tf,group));
+
     }
 }

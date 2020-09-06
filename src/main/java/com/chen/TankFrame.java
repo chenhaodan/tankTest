@@ -1,7 +1,5 @@
 package com.chen;
 
-import com.factory.*;
-
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -19,11 +17,10 @@ public class TankFrame extends Frame {
     Dir dir = Dir.DOWN;
     Tank tank = new Tank(100,200,Dir.DOWN,this,Group.GOOD);
 
-    public List<BaseBullet> bullets = new ArrayList<>();
+    List<Bullet> bullets = new ArrayList<Bullet>();
     List<Tank> enemy = new ArrayList<Tank>();
-    public List<BaseExplore> explores = new ArrayList<>();
+    List<Explore> explores = new ArrayList<>();
 //    Bullet b = new Bullet(200,200,Dir.DOWN);
-    public GameFactory gf = new RectFactory();
 
     public TankFrame(){
         setSize(GAME_WIDTH,GAME_HEIGHT);

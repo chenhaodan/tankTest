@@ -1,10 +1,8 @@
 package com.chen;
 
-import com.factory.BaseBullet;
-
 import java.awt.*;
 
-public class Bullet extends BaseBullet {
+public class Bullet {
 
     private int x , y;
     private Dir dir;
@@ -119,7 +117,7 @@ public class Bullet extends BaseBullet {
                 tank.die();
                 int eX = tank.getX() + Tank.WIDTH / 2 - Explore.WIDTH / 2;
                 int eY = tank.getY() + Tank.HEIGHT / 2 - Explore.HEIGHT / 2;
-                tf.explores.add(tf.gf.createExplore(eX,eY,tf));
+                tf.explores.add(new Explore(eX,eY,tf));
             }
         }
     }
