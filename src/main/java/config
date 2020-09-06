@@ -1,0 +1,4 @@
+#init
+initTankCount=10
+gameWidth=900
+gameHeight=1000
