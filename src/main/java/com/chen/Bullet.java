@@ -6,7 +6,7 @@ public class Bullet {
 
     private int x , y;
     private Dir dir;
-    TankFrame tf;
+    GameModel gm;
     public final static int SPEED = 10;
     public final static int WIDTH = ResourceMgr.bulletD.getWidth() ;
     public final static int HEIGHT = ResourceMgr.bulletD.getHeight();
@@ -14,11 +14,11 @@ public class Bullet {
     private Group group;
     private Rectangle rect = null;
 
-    public Bullet(int x, int y, Dir dir,TankFrame tf,Group group) {
+    public Bullet(int x, int y, Dir dir,GameModel gm,Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.tf  = tf;
+        this.gm  = gm;
         this.group = group;
         rect = new Rectangle(x,y,WIDTH,HEIGHT);
     }
@@ -56,7 +56,7 @@ public class Bullet {
             live = false;
         }
         if(!live){
-            tf.bullets.remove(this);
+            gm.bullets.remove(this);
         }
         switch (dir) {
             case LEFT:
@@ -117,7 +117,7 @@ public class Bullet {
                 tank.die();
                 int eX = tank.getX() + Tank.WIDTH / 2 - Explore.WIDTH / 2;
                 int eY = tank.getY() + Tank.HEIGHT / 2 - Explore.HEIGHT / 2;
-                tf.explores.add(new Explore(eX,eY,tf));
+                gm.explores.add(new Explore(eX,eY,gm));
             }
         }
     }

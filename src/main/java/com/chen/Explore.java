@@ -7,16 +7,16 @@ import java.awt.*;
 public class Explore {
     private int x ;
     private int y ;
-    TankFrame tf;
+    GameModel gm;
     private int step = 0;
     public final static int WIDTH = ResourceMgr.exploere[0].getWidth();
     public final static int HEIGHT = ResourceMgr.exploere[0].getHeight();
 
 
-    public Explore(int x, int y,TankFrame tf) {
+    public Explore(int x, int y,GameModel gm) {
         this.x = x;
         this.y = y;
-        this.tf = tf;
+        this.gm = gm;
 
         //TODO 爆炸声音
 //        new Audio("audio/explode.wav").play();
@@ -27,7 +27,7 @@ public class Explore {
             g.drawImage(ResourceMgr.exploere[step],x,y,null);
             step++;
         }else {
-            tf.explores.remove(this);
+            gm.explores.remove(this);
         }
     }
 }

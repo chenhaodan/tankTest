@@ -10,7 +10,7 @@ public class Tank {
     private Dir dir;
     private boolean moving = true;
     private boolean living = true;
-    TankFrame tf;
+    GameModel gm;
     private Group group;
     private Rectangle rect = null;
 
@@ -20,11 +20,11 @@ public class Tank {
     public final static int HEIGHT = ResourceMgr.goodTankD.getHeight();
     public final static int SPEED = 2;
 
-    public Tank(int x, int y, Dir dir,TankFrame tf,Group group) {
+    public Tank(int x, int y, Dir dir,GameModel gm,Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.tf = tf;
+        this.gm = gm;
         this.group = group;
         rect = new Rectangle(x,y,Tank.WIDTH,Tank.HEIGHT);
         if(group == Group.GOOD){
@@ -128,7 +128,7 @@ public class Tank {
     }
 
     private void move() {
-        if(!living) tf.enemy.remove(this);
+        if(!living) gm.enemy.remove(this);
         if(moving){
             switch (dir){
                 case LEFT:
@@ -165,8 +165,8 @@ public class Tank {
     private void checkBound() {
         if(x < 0 ) x = 2;
         if(y < 0 ) y = 2;
-        if(x > tf.GAME_WIDTH - Tank.WIDTH) x = tf.GAME_WIDTH - Tank.WIDTH;
-        if(y > tf.GAME_HEIGHT - Tank.HEIGHT) y = tf.GAME_HEIGHT - Tank.HEIGHT;
+        if(x > TankFrame.GAME_WIDTH - Tank.WIDTH) x = TankFrame.GAME_WIDTH - Tank.WIDTH;
+        if(y > TankFrame.GAME_HEIGHT - Tank.HEIGHT) y = TankFrame.GAME_HEIGHT - Tank.HEIGHT;
     }
 
     private void changeDir() {
@@ -185,11 +185,11 @@ public class Tank {
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
 
-        tf.bullets.add(new Bullet(bX,bY,dir,tf,group));
+        gm.bullets.add(new Bullet(bX,bY,dir,gm,group));
     }
 
     public void fire(FireStratege fireStratege) {
-        fireStratege.fire(tf,this);
+        fireStratege.fire(gm,this);
     }
 
     public void die() {
