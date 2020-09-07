@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class TankFrame extends Frame {
 
-    public final static int GAME_WIDTH = 800 , GAME_HEIGHT = 1000;
+    public final static int GAME_WIDTH = 1020 , GAME_HEIGHT = 960;
 
     int x = 100 , y = 200;
     Dir dir = Dir.DOWN;

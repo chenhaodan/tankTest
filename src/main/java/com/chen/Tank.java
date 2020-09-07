@@ -7,6 +7,8 @@ public class Tank extends GameObject{
 
     private int x ;
     private int y ;
+    private int oldX;
+    private int oldY;
     private Dir dir;
     private boolean moving = true;
     private boolean living = true;
@@ -81,6 +83,22 @@ public class Tank extends GameObject{
         this.rect = rect;
     }
 
+    public int getOldX() {
+        return oldX;
+    }
+
+    public void setOldX(int oldX) {
+        this.oldX = oldX;
+    }
+
+    public int getOldY() {
+        return oldY;
+    }
+
+    public void setOldY(int oldY) {
+        this.oldY = oldY;
+    }
+
     public void paint(Graphics g){
         Color color = g.getColor();
 //        g.setColor(Color.YELLOW);
@@ -131,6 +149,8 @@ public class Tank extends GameObject{
     private void move() {
         if(!living) gm.gameObjects.remove(this);
         if(moving){
+            oldX = x;
+            oldY = y;
             switch (dir){
                 case LEFT:
                     x -= SPEED;

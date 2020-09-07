@@ -8,13 +8,17 @@ public class GameModel {
     Tank tank = new Tank(100,200,Dir.DOWN,this,Group.GOOD);
     List<GameObject> gameObjects = new ArrayList<>();
 
-    Collider collider = new BulletTankCollider();
+//    Collider collider = new BulletTankCollider();
+//    Collider colliderTank = new TankTankCollider();
+
+    Collider collider = new ColliderChain().add(new BulletTankCollider()).add(new TankTankCollider());
+
 
     public GameModel(){
         int initCount = Integer.parseInt((String) PropertyMgr.get("initTankCount"));
 
         for(int i = 0 ; i < initCount ; i++){
-            gameObjects.add(new Tank(200 + i * 60,200,Dir.DOWN,this,Group.BAD));
+            gameObjects.add(new Tank(200 + i * 100,00,Dir.DOWN,this,Group.BAD));
         }
     }
 
@@ -28,7 +32,7 @@ public class GameModel {
         }
 
         for(int i = 0 ; i < gameObjects.size() ; i++){
-            for (int j = 0 ; j < gameObjects.size() ; j++){
+            for (int j = i+1 ; j < gameObjects.size() ; j++){
                 GameObject go1 = gameObjects.get(i);
                 GameObject go2 = gameObjects.get(j);
                 collider.collideWith(go1,go2);

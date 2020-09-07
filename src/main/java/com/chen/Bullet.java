@@ -108,7 +108,7 @@ public class Bullet extends GameObject{
         this.live = live;
     }
 
-    public void collideWith(Tank tank) {
+    public boolean collideWith(Tank tank) {
         if(group != tank.getGroup()){
             rect.setLocation(x,y);
             Rectangle tankRect = tank.getRect();
@@ -118,8 +118,10 @@ public class Bullet extends GameObject{
                 int eX = tank.getX() + Tank.WIDTH / 2 - Explore.WIDTH / 2;
                 int eY = tank.getY() + Tank.HEIGHT / 2 - Explore.HEIGHT / 2;
                 gm.gameObjects.add(new Explore(eX,eY,gm));
+                return false;
             }
         }
+        return true;
     }
 
     private void die() {
