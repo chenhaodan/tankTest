@@ -16,10 +16,10 @@ public class FireDirStratege implements FireStratege {
             bX = x + Tank.HEIGHT/2 - Bullet.HEIGHT / 2;
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
-        gm.bullets.add(new Bullet(bX,bY,Dir.LEFT,gm,group));
-        gm.bullets.add(new Bullet(bX,bY,Dir.UP,gm,group));
-        gm.bullets.add(new Bullet(bX,bY,Dir.RIGHT,gm,group));
-        gm.bullets.add(new Bullet(bX,bY,Dir.DOWN,gm,group));
+        gm.gameObjects.add(new Bullet(bX,bY,Dir.LEFT,gm,group));
+        gm.gameObjects.add(new Bullet(bX,bY,Dir.UP,gm,group));
+        gm.gameObjects.add(new Bullet(bX,bY,Dir.RIGHT,gm,group));
+        gm.gameObjects.add(new Bullet(bX,bY,Dir.DOWN,gm,group));
 
     }
 }

@@ -3,7 +3,7 @@ package com.chen;
 import java.awt.*;
 import java.util.Random;
 
-public class Tank {
+public class Tank extends GameObject{
 
     private int x ;
     private int y ;
@@ -127,8 +127,9 @@ public class Tank {
 
     }
 
+
     private void move() {
-        if(!living) gm.enemy.remove(this);
+        if(!living) gm.gameObjects.remove(this);
         if(moving){
             switch (dir){
                 case LEFT:
@@ -185,7 +186,7 @@ public class Tank {
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
 
-        gm.bullets.add(new Bullet(bX,bY,dir,gm,group));
+        gm.gameObjects.add(new Bullet(bX,bY,dir,gm,group));
     }
 
     public void fire(FireStratege fireStratege) {

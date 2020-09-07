@@ -17,6 +17,6 @@ public class FireSingleStratege implements FireStratege{
             bX = x + Tank.HEIGHT/2 - Bullet.HEIGHT / 2;
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
-        gm.bullets.add(new Bullet(bX,bY,dir,gm,group));
+        gm.gameObjects.add(new Bullet(bX,bY,dir,gm,group));
     }
 }

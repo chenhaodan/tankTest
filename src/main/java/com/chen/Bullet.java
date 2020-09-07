@@ -2,7 +2,7 @@ package com.chen;
 
 import java.awt.*;
 
-public class Bullet {
+public class Bullet extends GameObject{
 
     private int x , y;
     private Dir dir;
@@ -56,7 +56,7 @@ public class Bullet {
             live = false;
         }
         if(!live){
-            gm.bullets.remove(this);
+            gm.gameObjects.remove(this);
         }
         switch (dir) {
             case LEFT:
@@ -117,7 +117,7 @@ public class Bullet {
                 tank.die();
                 int eX = tank.getX() + Tank.WIDTH / 2 - Explore.WIDTH / 2;
                 int eY = tank.getY() + Tank.HEIGHT / 2 - Explore.HEIGHT / 2;
-                gm.explores.add(new Explore(eX,eY,gm));
+                gm.gameObjects.add(new Explore(eX,eY,gm));
             }
         }
     }

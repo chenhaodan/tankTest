@@ -4,7 +4,7 @@ import com.factory.BaseExplore;
 
 import java.awt.*;
 
-public class Explore {
+public class Explore extends GameObject{
     private int x ;
     private int y ;
     GameModel gm;
@@ -27,7 +27,9 @@ public class Explore {
             g.drawImage(ResourceMgr.exploere[step],x,y,null);
             step++;
         }else {
-            gm.explores.remove(this);
+            gm.gameObjects.remove(this);
         }
     }
+
+
 }

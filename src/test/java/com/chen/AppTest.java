@@ -29,7 +29,7 @@ public class AppTest
 
     @Test
     public void imageTest() throws IOException {
-        BufferedImage image = ImageIO.read(new File("D:/Leaning/msb/tank/src/main/java/images/bulletD.gif"));
+        BufferedImage image = ImageIO.read(new File("D:/project/tankTest/src/main/java/images/bulletD.gif"));
         assertNotNull(image);
 
         BufferedImage image2 = ImageIO.read(this.getClass().getClassLoader().getResourceAsStream("images/bulletD.gif"));
