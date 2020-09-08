@@ -124,7 +124,11 @@ public class Bullet extends GameObject{
         return true;
     }
 
-    private void die() {
+    public void die() {
         live = false;
+    }
+
+    public Rectangle getRect() {
+        return rect;
     }
 }

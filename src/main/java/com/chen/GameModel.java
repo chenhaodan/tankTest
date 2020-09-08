@@ -11,7 +11,7 @@ public class GameModel {
 //    Collider collider = new BulletTankCollider();
 //    Collider colliderTank = new TankTankCollider();
 
-    Collider collider = new ColliderChain().add(new BulletTankCollider()).add(new TankTankCollider());
+    Collider collider = new ColliderChain();
 
 
     public GameModel(){
@@ -20,6 +20,8 @@ public class GameModel {
         for(int i = 0 ; i < initCount ; i++){
             gameObjects.add(new Tank(200 + i * 100,00,Dir.DOWN,this,Group.BAD));
         }
+
+        gameObjects.add(new Wall(100,300,30,200));
     }
 
     public void paint(Graphics g) {
