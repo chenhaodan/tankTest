@@ -6,7 +6,6 @@ public class Bullet extends GameObject{
 
     private int x , y;
     private Dir dir;
-    GameModel gm;
     public final static int SPEED = 10;
     public final static int WIDTH = ResourceMgr.bulletD.getWidth() ;
     public final static int HEIGHT = ResourceMgr.bulletD.getHeight();
@@ -14,13 +13,13 @@ public class Bullet extends GameObject{
     private Group group;
     private Rectangle rect = null;
 
-    public Bullet(int x, int y, Dir dir,GameModel gm,Group group) {
+    public Bullet(int x, int y, Dir dir,Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gm  = gm;
         this.group = group;
         rect = new Rectangle(x,y,WIDTH,HEIGHT);
+        GameModel.getInstance().add(this);
     }
 
 
@@ -56,7 +55,7 @@ public class Bullet extends GameObject{
             live = false;
         }
         if(!live){
-            gm.gameObjects.remove(this);
+            GameModel.getInstance().gameObjects.remove(this);
         }
         switch (dir) {
             case LEFT:
@@ -117,7 +116,7 @@ public class Bullet extends GameObject{
                 tank.die();
                 int eX = tank.getX() + Tank.WIDTH / 2 - Explore.WIDTH / 2;
                 int eY = tank.getY() + Tank.HEIGHT / 2 - Explore.HEIGHT / 2;
-                gm.gameObjects.add(new Explore(eX,eY,gm));
+                new Explore(eX,eY);
                 return false;
             }
         }

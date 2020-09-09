@@ -2,5 +2,5 @@ package com.chen;
 
 public interface FireStratege {
 
-    public void fire(GameModel gm,Tank tank);
+    public void fire(Tank tank);
 }

@@ -12,7 +12,6 @@ public class Tank extends GameObject{
     private Dir dir;
     private boolean moving = true;
     private boolean living = true;
-    GameModel gm;
     private Group group;
     private Rectangle rect = null;
 
@@ -26,12 +25,12 @@ public class Tank extends GameObject{
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gm = gm;
         this.group = group;
         rect = new Rectangle(x,y,Tank.WIDTH,Tank.HEIGHT);
         if(group == Group.GOOD){
             moving = false;
         }
+        GameModel.getInstance().add(this);
     }
 
 
@@ -147,7 +146,7 @@ public class Tank extends GameObject{
 
 
     private void move() {
-        if(!living) gm.gameObjects.remove(this);
+        if(!living) GameModel.getInstance().gameObjects.remove(this);
         if(moving){
             oldX = x;
             oldY = y;
@@ -206,11 +205,11 @@ public class Tank extends GameObject{
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
 
-        gm.gameObjects.add(new Bullet(bX,bY,dir,gm,group));
+        GameModel.getInstance().gameObjects.add(new Bullet(bX,bY,dir,group));
     }
 
     public void fire(FireStratege fireStratege) {
-        fireStratege.fire(gm,this);
+        fireStratege.fire(this);
     }
 
     public void die() {

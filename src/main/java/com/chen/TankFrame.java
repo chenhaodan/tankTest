@@ -13,9 +13,6 @@ public class TankFrame extends Frame {
 
     public final static int GAME_WIDTH = 1020 , GAME_HEIGHT = 960;
 
-    int x = 100 , y = 200;
-    Dir dir = Dir.DOWN;
-    GameModel gm = new GameModel();
 
 
     public TankFrame(){
@@ -50,7 +47,7 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        gm.paint(g);
+        GameModel.getInstance().paint(g);
     }
 
     public class MyKeyListener extends KeyAdapter {
@@ -78,10 +75,10 @@ public class TankFrame extends Frame {
                     bD = true;
                     break;
                 case KeyEvent.VK_CONTROL:
-                    gm.getMainTank().fire(new FireSingleStratege());
+                    GameModel.getInstance().getMainTank().fire(new FireSingleStratege());
                     break;
                 case KeyEvent.VK_SHIFT:
-                    gm.getMainTank().fire(new FireDirStratege());
+                    GameModel.getInstance().getMainTank().fire(new FireDirStratege());
                     break;
                 default:
                     break;
@@ -91,7 +88,7 @@ public class TankFrame extends Frame {
         }
 
         private void setMainDir() {
-            Tank tank = gm.getMainTank();
+            Tank tank = GameModel.getInstance().getMainTank();
             if(!bL && !bU && !bR && !bD){
                 tank.setMoving(false);
             }else {

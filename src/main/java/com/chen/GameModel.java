@@ -5,30 +5,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameModel {
-    Tank tank = new Tank(100,200,Dir.DOWN,this,Group.GOOD);
+
+    private final static GameModel INSTANCE = new GameModel();
+
+    static {
+        INSTANCE.init();
+    }
+
     List<GameObject> gameObjects = new ArrayList<>();
-
-//    Collider collider = new BulletTankCollider();
-//    Collider colliderTank = new TankTankCollider();
-
     Collider collider = new ColliderChain();
+    Tank tank ;
+
+    private GameModel(){
+    }
+
+    public static GameModel getInstance(){
+        return INSTANCE;
+    }
 
 
-    public GameModel(){
+    private void init(){
+        tank = new Tank(100,200,Dir.DOWN,this,Group.GOOD);
         int initCount = Integer.parseInt((String) PropertyMgr.get("initTankCount"));
 
         for(int i = 0 ; i < initCount ; i++){
-            gameObjects.add(new Tank(200 + i * 100,00,Dir.DOWN,this,Group.BAD));
+            new Tank(200 + i * 100,200,Dir.DOWN,this,Group.BAD);
         }
 
-        gameObjects.add(new Wall(100,300,30,200));
+        add(new Wall(100,300,30,200));
+
+    }
+
+
+    public void add(GameObject go){
+        gameObjects.add(go);
     }
 
     public void paint(Graphics g) {
         Color color = g.getColor();
         g.setColor(Color.BLUE);
         g.setColor(color);
-        tank.paint(g);
+
         for(int i = 0 ; i < gameObjects.size() ; i++){
             gameObjects.get(i).paint(g);
         }
