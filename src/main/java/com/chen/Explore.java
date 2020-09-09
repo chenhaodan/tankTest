@@ -5,8 +5,8 @@ import com.factory.BaseExplore;
 import java.awt.*;
 
 public class Explore extends GameObject{
-    private int x ;
-    private int y ;
+//    private int x ;
+//    private int y ;
     private int step = 0;
     public final static int WIDTH = ResourceMgr.exploere[0].getWidth();
     public final static int HEIGHT = ResourceMgr.exploere[0].getHeight();
@@ -28,6 +28,16 @@ public class Explore extends GameObject{
         }else {
             GameModel.getInstance().gameObjects.remove(this);
         }
+    }
+
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
     }
 
 

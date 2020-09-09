@@ -4,8 +4,8 @@ import java.awt.*;
 
 public class Wall extends GameObject {
 
-    int x ;
-    int y;
+//    int x ;
+//    int y;
     int width , height;
     Rectangle rect ;
 
@@ -23,6 +23,16 @@ public class Wall extends GameObject {
         g.setColor(Color.GRAY);
         g.drawRect(x,y,30,200);
         g.setColor(color);
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 
     public boolean collideWith(Bullet bullet) {

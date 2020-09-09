@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Tank extends GameObject{
 
-    private int x ;
-    private int y ;
+//    private int x ;
+//    private int y ;
     private int oldX;
     private int oldY;
     private Dir dir;
@@ -144,6 +144,16 @@ public class Tank extends GameObject{
 
     }
 
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
+    }
+
 
     private void move() {
         if(!living) GameModel.getInstance().gameObjects.remove(this);
@@ -170,7 +180,7 @@ public class Tank extends GameObject{
 
         if(Group.BAD == group){
             if(random.nextInt(10) > 8){
-                this.fire();
+                this.fire(new FireSingleStratege());
             }
 
             if(random.nextInt(100) > 90){

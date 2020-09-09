@@ -1,5 +1,8 @@
 package com.chen;
 
+import com.decorate.SkinDecorator;
+import com.decorate.TailDecorator;
+
 public class FireSingleStratege implements FireStratege{
 
     @Override
@@ -17,6 +20,6 @@ public class FireSingleStratege implements FireStratege{
             bX = x + Tank.HEIGHT/2 - Bullet.HEIGHT / 2;
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
-        new Bullet(bX,bY,dir,group);
+        GameModel.getInstance().gameObjects.add(new TailDecorator(new SkinDecorator(new Bullet(bX,bY,dir,group))));
     }
 }
