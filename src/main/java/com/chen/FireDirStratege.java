@@ -19,10 +19,10 @@ public class FireDirStratege implements FireStratege {
             bX = x + Tank.HEIGHT/2 - Bullet.HEIGHT / 2;
             bY = y + Tank.WIDTH/2 - Bullet.WIDTH / 2;
         }
-        GameModel.getInstance().gameObjects.add(new TailDecorator(new SkinDecorator(new Bullet(bX,bY,Dir.LEFT,group))));
-        GameModel.getInstance().gameObjects.add(new TailDecorator(new SkinDecorator(new Bullet(bX,bY,Dir.UP,group))));
-        GameModel.getInstance().gameObjects.add(new TailDecorator(new SkinDecorator(new Bullet(bX,bY,Dir.RIGHT,group))));
-        GameModel.getInstance().gameObjects.add(new TailDecorator(new SkinDecorator(new Bullet(bX,bY,Dir.DOWN,group))));
+        GameModel.getInstance().gameObjects.add(new Bullet(bX,bY,Dir.LEFT,group));
+        GameModel.getInstance().gameObjects.add(new Bullet(bX,bY,Dir.UP,group));
+        GameModel.getInstance().gameObjects.add(new Bullet(bX,bY,Dir.RIGHT,group));
+        GameModel.getInstance().gameObjects.add(new Bullet(bX,bY,Dir.DOWN,group));
 
     }
 }

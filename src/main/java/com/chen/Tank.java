@@ -2,6 +2,7 @@ package com.chen;
 
 import java.awt.*;
 import java.util.Random;
+import java.util.UUID;
 
 public class Tank extends GameObject{
 
@@ -14,6 +15,15 @@ public class Tank extends GameObject{
     private boolean living = true;
     private Group group;
     private Rectangle rect = null;
+    private UUID id;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     private Random random = new Random();
 
